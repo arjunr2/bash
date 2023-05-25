@@ -59,25 +59,25 @@ extern long long strtoll PARAMS((const char *, char **, int));
 #undef strtoimax
 #endif
 
-intmax_t
-strtoimax (ptr, endptr, base)
-     const char *ptr;
-     char **endptr;
-     int base;
-{
-#if HAVE_LONG_LONG_INT
-  verify(size_is_that_of_long_or_long_long,
-	 (sizeof (intmax_t) == sizeof (long) ||
-	  sizeof (intmax_t) == sizeof (long long)));
-
-  if (sizeof (intmax_t) != sizeof (long))
-    return (strtoll (ptr, endptr, base));
-#else
-  verify (size_is_that_of_long, sizeof (intmax_t) == sizeof (long));
-#endif
-
-  return (strtol (ptr, endptr, base));
-}
+//intmax_t
+//strtoimax (ptr, endptr, base)
+//     const char *ptr;
+//     char **endptr;
+//     int base;
+//{
+//#if HAVE_LONG_LONG_INT
+//  verify(size_is_that_of_long_or_long_long,
+//	 (sizeof (intmax_t) == sizeof (long) ||
+//	  sizeof (intmax_t) == sizeof (long long)));
+//
+//  if (sizeof (intmax_t) != sizeof (long))
+//    return (strtoll (ptr, endptr, base));
+//#else
+//  verify (size_is_that_of_long, sizeof (intmax_t) == sizeof (long));
+//#endif
+//
+//  return (strtol (ptr, endptr, base));
+//}
 
 #ifdef TESTING
 # include <stdio.h>

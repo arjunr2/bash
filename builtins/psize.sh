@@ -34,7 +34,7 @@ echo ""
 #
 $used_mktemp || rm -f "$TMPFILE"
 
-./psize.aux 2>"$TMPFILE" | sleep 3
+/home/arjun/Documents/research/webassembly/wali/wasm-micro-runtime/product-mini/platforms/linux/build/iwasm psize.aux 2>"$TMPFILE" | sleep 3
 
 if [ -s "$TMPFILE" ]; then
 	echo "#define PIPESIZE `cat "$TMPFILE"`"

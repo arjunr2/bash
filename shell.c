@@ -362,16 +362,13 @@ _cygwin32_check_tmp ()
 #if defined (NO_MAIN_ENV_ARG)
 /* systems without third argument to main() */
 int
-main (argc, argv)
-     int argc;
-     char **argv;
+main (int argc, char **argv)
 #else /* !NO_MAIN_ENV_ARG */
 int
-main (argc, argv, env)
-     int argc;
-     char **argv, **env;
+main (int argc, char **argv, char **env)
 #endif /* !NO_MAIN_ENV_ARG */
 {
+  char **env = NULL;
   register int i;
   int code, old_errexit_flag;
 #if defined (RESTRICTED_SHELL)
@@ -414,7 +411,7 @@ main (argc, argv, env)
   /* Wait forever if we are debugging a login shell. */
   while (debugging_login_shell) sleep (3);
 
-  set_default_locale ();
+  //set_default_locale ();
 
   running_setuid = uidget ();
 
@@ -575,12 +572,13 @@ main (argc, argv, env)
   if (shopt_alist)
     run_shopt_alist ();
 
+  printf("RAN TILL SHELL INIT\n");
   /* From here on in, the shell must be a normal functioning shell.
      Variables from the environment are expected to be set, etc. */
   shell_initialize ();
 
-  set_default_lang ();
-  set_default_locale_vars ();
+  //set_default_lang ();
+  //set_default_locale_vars ();
 
   /*
    * M-x term -> TERM=eterm-color INSIDE_EMACS='251,term:0.96' (eterm)

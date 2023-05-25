@@ -139,9 +139,7 @@ void
 #if defined (PREFER_STDARG)
 programming_error (const char *format, ...)
 #else
-programming_error (format, va_alist)
-     const char *format;
-     va_dcl
+programming_error (const char *format, va_dcl va_alist)
 #endif
 {
   va_list args;

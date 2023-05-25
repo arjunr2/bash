@@ -116,14 +116,14 @@ RL_LIBSRC = $(topdir)/lib/readline
 # How to make a .o file from a .def file.
 .def.o:
 	$(RM) $@
-	./$(MKBUILTINS) $(DIRECTDEFINE) $<
+	/home/arjun/Documents/research/webassembly/wali/wasm-micro-runtime/product-mini/platforms/linux/build/iwasm $(MKBUILTINS) $(DIRECTDEFINE) $<
 	$(CC) -c $(CCFLAGS) $*.c || ( $(RM) $*.c ; exit 1 )
 	$(RM) $*.c
 
 # How to make a .c file from a .def file.
 .def.c:
 	$(RM) $@
-	./$(MKBUILTINS) $(DIRECTDEFINE) $<
+	/home/arjun/Documents/research/webassembly/wali/wasm-micro-runtime/product-mini/platforms/linux/build/iwasm $(MKBUILTINS) $(DIRECTDEFINE) $<
 
 # default rule for making a .o file from a .c file
 .c.o:
@@ -171,7 +171,7 @@ libbuiltins.a: $(MKBUILTINS) $(OFILES) builtins.o
 	-$(RANLIB) $@
 
 tmpbuiltins.c:	$(MKBUILTINS) $(DEFSRC)
-	./$(MKBUILTINS) -externfile tmpbuiltins.h -structfile $@ \
+	/home/arjun/Documents/research/webassembly/wali/wasm-micro-runtime/product-mini/platforms/linux/build/iwasm $(MKBUILTINS) -externfile tmpbuiltins.h -structfile $@ \
 		-noproduction -nofunctions \
 		$(DIRECTDEFINE) $(HELPSTRINGS) $(DEFSRC)
 
@@ -188,7 +188,7 @@ gen-helpfiles:	tmpbuiltins.o gen-helpfiles.o
 builtext.h builtins.c: $(MKBUILTINS) $(DEFSRC)
 	@RECPID=$$$$ ; \
 	NEW_BUILTEXT=builtext-$$RECPID.h NEW_BUILTINS=builtins-$$RECPID.c ; \
-	./$(MKBUILTINS) -externfile $$NEW_BUILTEXT \
+	/home/arjun/Documents/research/webassembly/wali/wasm-micro-runtime/product-mini/platforms/linux/build/iwasm $(MKBUILTINS) -externfile $$NEW_BUILTEXT \
 	    -includefile builtext.h \
 	    -structfile $$NEW_BUILTINS \
 	    -noproduction $(DIRECTDEFINE) $(HELPDIRDEFINE) $(HELPSTRINGS) $(DEFSRC) ; \
@@ -250,7 +250,7 @@ psize.aux:	psize.c
 documentation: builtins.texi
 
 builtins.texi: $(MKBUILTINS)
-	./$(MKBUILTINS) -documentonly $(DEFSRC)
+	/home/arjun/Documents/research/webassembly/wali/wasm-micro-runtime/product-mini/platforms/linux/build/iwasm $(MKBUILTINS) -documentonly $(DEFSRC)
 
 clean:
 	$(RM) $(OFILES) $(CREATED_FILES) libbuiltins.a
