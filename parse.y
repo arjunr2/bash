@@ -1769,7 +1769,7 @@ push_stream (reset_lineno)
 }
 
 void
-pop_stream ()
+pop_stream (char *s)
 {
   if (!stream_list)
     EOF_Reached = 1;
@@ -6439,7 +6439,7 @@ parse_string_to_word_list (s, flags, whom)
     }
   
   last_read_token = '\n';
-  pop_stream ();
+  pop_stream (NULL);
 
   if (ea)
     parser_restore_alias ();
