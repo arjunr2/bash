@@ -4954,6 +4954,12 @@ execute_builtin (builtin, words, flags, subshell)
       sourcenest++;	/* execute_subshell_builtin_or_function sets this to 0 */
     }
 
+  WORD_LIST *tmp = words;
+  while (tmp != NULL) {
+    printf("Word: %s\n", tmp->word->word);
+    tmp = tmp->next;
+  }
+  printf("Cur builtin: %d\n", builtin);
   /* `return' does a longjmp() back to a saved environment in execute_function.
      If a variable assignment list preceded the command, and the shell is
      running in POSIX mode, we need to merge that into the shell_variables
@@ -4968,12 +4974,16 @@ execute_builtin (builtin, words, flags, subshell)
 
   executing_builtin++;
   executing_command_builtin |= builtin == command_builtin;
+
+  printf("Runs this\n");
+  /* Here is the command */
   result = ((*builtin) (words->next));
 
   /* This shouldn't happen, but in case `return' comes back instead of
      longjmp'ing, we need to unwind. */
   if (posixly_correct && subshell == 0 && builtin == return_builtin && temporary_env)
     discard_unwind_frame ("return_temp_env");
+
 
   if (subshell == 0 && isbltinenv)
     run_unwind_frame ("builtin_env");
@@ -5269,7 +5279,7 @@ execute_function (var, words, flags, fds_to_close, async, subshell)
       restore_funcarray_state (fa);
       /* Restore BASH_ARGC and BASH_ARGV */
       if (debugging_mode)
-	pop_args ();
+	pop_args (NULL);
     }
 #endif
 

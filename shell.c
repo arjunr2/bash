@@ -572,7 +572,6 @@ main (int argc, char **argv, char **env)
   if (shopt_alist)
     run_shopt_alist ();
 
-  printf("RAN TILL SHELL INIT\n");
   /* From here on in, the shell must be a normal functioning shell.
      Variables from the environment are expected to be set, etc. */
   shell_initialize ();
@@ -1530,7 +1529,7 @@ void
 unbind_args ()
 {
   remember_args ((WORD_LIST *)NULL, 1);
-  pop_args ();				/* Reset BASH_ARGV and BASH_ARGC */
+  pop_args (NULL);				/* Reset BASH_ARGV and BASH_ARGC */
 }
 
 static void

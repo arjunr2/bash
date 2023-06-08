@@ -449,7 +449,7 @@ valid_filename_p (fn)
    0 if the data base is accessible but the type NAME is not defined
    in it, and some other value otherwise.  */
 
-__private_extern__
+//__private_extern__
 int
 tgetent (bp, name)
      char *bp, *name;

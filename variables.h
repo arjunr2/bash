@@ -358,7 +358,7 @@ extern void dispose_saved_dollar_vars PARAMS((void));
 extern void init_bash_argv PARAMS((void));
 extern void save_bash_argv PARAMS((void));
 extern void push_args PARAMS((WORD_LIST *));
-extern void pop_args PARAMS((void));
+extern void pop_args PARAMS((char*));
 
 extern void adjust_shell_level PARAMS((int));
 extern void non_unsettable PARAMS((char *));

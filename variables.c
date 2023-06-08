@@ -5760,7 +5760,7 @@ push_args (list)
    array and use that value as the count of elements to remove from
    BASH_ARGV. */
 void
-pop_args ()
+pop_args (char* s)
 {
 #if defined (ARRAY_VARS) && defined (DEBUGGER)
   SHELL_VAR *bash_argv_v, *bash_argc_v;

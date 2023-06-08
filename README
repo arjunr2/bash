@@ -8,3 +8,8 @@ Run the script `./conf_command.sh`. Make sure to change the WALI sysroot directo
 library for wasm32
 
 
+## Notes
+
+Compile `lib/sh/mbschr.c` independently by fixing the makefile since it is required for bash 
+Link TERMCAP independently in parent makefile
+
