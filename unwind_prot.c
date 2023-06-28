@@ -321,7 +321,6 @@ unwind_frame_run_internal (tag, ignore)
 	}
       else
 	{
-    printf("Internal frame unwinding: ELT cleanup: %d | restore_var: %d!\n", elt->head.cleanup, restore_variable);
 	  if (elt->head.cleanup == (Function *) restore_variable)
 	    restore_variable (&elt->sv.v);
 	  else

@@ -4956,10 +4956,8 @@ execute_builtin (builtin, words, flags, subshell)
 
   WORD_LIST *tmp = words;
   while (tmp != NULL) {
-    printf("Word: %s\n", tmp->word->word);
     tmp = tmp->next;
   }
-  printf("Cur builtin: %d\n", builtin);
   /* `return' does a longjmp() back to a saved environment in execute_function.
      If a variable assignment list preceded the command, and the shell is
      running in POSIX mode, we need to merge that into the shell_variables
@@ -4975,7 +4973,6 @@ execute_builtin (builtin, words, flags, subshell)
   executing_builtin++;
   executing_command_builtin |= builtin == command_builtin;
 
-  printf("Runs this\n");
   /* Here is the command */
   result = ((*builtin) (words->next));
 
