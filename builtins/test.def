@@ -152,7 +152,7 @@ test_builtin (list)
     }
 
   argv = make_builtin_argv  (list, &argc);
-  result = test_command (argc, argv);
+  /* result = test_command (argc, argv); */
   free ((char *)argv);
 
   return (result);

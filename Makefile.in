@@ -738,7 +738,7 @@ mksyntax$(EXEEXT):	${srcdir}/mksyntax.c config.h syntax.h ${BASHINCDIR}/chartype
 # *not* cross-compiling
 lsignames.h:   mksignames$(EXEEXT)
 	$(RM) $@
-	/home/arjun/Documents/research/webassembly/wali/wasm-micro-runtime/product-mini/platforms/linux/build/iwasm mksignames$(EXEEXT) $@
+	mksignames$(EXEEXT) $@
 
 # copy the correct signames header file to signames.h
 signames.h: $(SIGNAMES_H)
@@ -746,7 +746,7 @@ signames.h: $(SIGNAMES_H)
 
 syntax.c:	mksyntax${EXEEXT} $(srcdir)/syntax.h 
 	$(RM) $@
-	/home/arjun/Documents/research/webassembly/wali/wasm-micro-runtime/product-mini/platforms/linux/build/iwasm mksyntax$(EXEEXT) -o $@
+	mksyntax$(EXEEXT) -o $@
 
 $(BUILTINS_LIBRARY): $(DEFDIR)/builtext.h $(BUILTIN_DEFS) $(BUILTIN_C_SRC) config.h ${BASHINCDIR}/memalloc.h  version.h
 	@(cd $(DEFDIR) && $(MAKE) $(MFLAGS) DEBUG=${DEBUG} targets ) || exit 1
