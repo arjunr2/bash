@@ -5269,7 +5269,7 @@ execute_function (var, words, flags, fds_to_close, async, subshell)
       restore_funcarray_state (fa);
       /* Restore BASH_ARGC and BASH_ARGV */
       if (debugging_mode)
-	pop_args ();
+	pop_args (NULL);
     }
 #endif
 

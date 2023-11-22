@@ -56,9 +56,7 @@ sigpipe (sig)
 }
 
 int
-main (argc, argv)
-     int argc;
-     char **argv;
+main (int argc, char **argv)
 {
   char buf[128];
   register int i;

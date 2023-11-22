@@ -70,7 +70,7 @@ static int cat_file PARAMS((REDIRECT *));
 
 #if defined (HISTORY)
 static void
-set_history_remembering ()
+set_history_remembering (char *s)
 {
   remember_on_history = enable_history_list;
 }

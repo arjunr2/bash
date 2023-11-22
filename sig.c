@@ -160,9 +160,9 @@ static struct termsig terminating_signals[] = {
 {  SIGBUS, NULL_HANDLER, 0, 1 },
 #endif
 
-#ifdef SIGSEGV
-{  SIGSEGV, NULL_HANDLER, 0, 1 },
-#endif
+//#ifdef SIGSEGV
+//{  SIGSEGV, NULL_HANDLER, 0, 1 },
+//#endif
 
 #ifdef SIGSYS
 {  SIGSYS, NULL_HANDLER, 0, 1 },

@@ -99,7 +99,7 @@ extern void with_input_from_stdin PARAMS((void));
 extern void with_input_from_string PARAMS((char *, const char *));
 extern void with_input_from_stream PARAMS((FILE *, const char *));
 extern void push_stream PARAMS((int));
-extern void pop_stream PARAMS((void));
+extern void pop_stream PARAMS((char*));
 extern int stream_on_stack PARAMS((enum stream_type));
 extern char *read_secondary_line PARAMS((int));
 extern int find_reserved_word PARAMS((char *));

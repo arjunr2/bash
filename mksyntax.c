@@ -311,9 +311,7 @@ dump_lsyntax (fp)
 }
 
 int
-main(argc, argv)
-     int argc;
-     char **argv;
+main(int argc, char **argv)
 {
   int opt, i;
   char *filename;

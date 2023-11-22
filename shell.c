@@ -360,11 +360,10 @@ _cygwin32_check_tmp ()
 #endif /* __CYGWIN__ */
 
 #if defined (NO_MAIN_ENV_ARG)
+#include <copy_environ.h>
 /* systems without third argument to main() */
 int
-main (argc, argv)
-     int argc;
-     char **argv;
+main (int argc, char **argv)
 #else /* !NO_MAIN_ENV_ARG */
 int
 main (argc, argv, env)
@@ -372,6 +371,7 @@ main (argc, argv, env)
      char **argv, **env;
 #endif /* !NO_MAIN_ENV_ARG */
 {
+  char **env = copy_environ();
   register int i;
   int code, old_errexit_flag;
 #if defined (RESTRICTED_SHELL)
@@ -1532,7 +1532,7 @@ void
 unbind_args ()
 {
   remember_args ((WORD_LIST *)NULL, 1);
-  pop_args ();				/* Reset BASH_ARGV and BASH_ARGC */
+  pop_args (NULL);				/* Reset BASH_ARGV and BASH_ARGC */
 }
 
 static void

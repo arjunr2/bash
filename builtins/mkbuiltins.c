@@ -229,9 +229,7 @@ void remove_trailing_whitespace ();
    write the information to STRUCTFILE and EXTERNFILE, while
    creating the production file if necessary. */
 int
-main (argc, argv)
-     int argc;
-     char **argv;
+main (int argc, char **argv)
 {
   int arg_index = 1;
   FILE *structfile, *externfile;
